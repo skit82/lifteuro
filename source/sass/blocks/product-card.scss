@@ -1,0 +1,85 @@
+.product-card {
+  background-color: rgba($color-mirage, 0.05);
+  transition: transform $trans-default, box-shadow $trans-default, border-color $trans-default, opacity $trans-default;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 400px;
+
+    @include vp-1023 {
+      min-height: 300px;
+    }
+
+    @include vp-767 {
+      min-height: 210px;
+    }
+  }
+
+  &__image {
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    img {
+      mix-blend-mode: multiply;
+      width: 220px;
+      height: 260px;
+      object-fit: contain;
+
+      @include vp-1023 {
+        width: 160px;
+        height: 190px;
+      }
+
+      @include vp-767 {
+        width: 110px;
+        height: 120px;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+
+    color: $color-default-black;
+    transition: color $trans-font;
+    transform-origin: left center;
+
+    @include vp-1099 {
+      font-size: 15px;
+      line-height: 133%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @include vp-767 {
+      font-size: 12px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  @media (hover: hover), screen and (min-width: 0\0) {
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 75px 0 rgba(19, 24, 37, 0.35);
+      transform: scale(1.07);
+
+      .product-card__name p {
+        color: $color-monza;
+      }
+    }
+  }
+}

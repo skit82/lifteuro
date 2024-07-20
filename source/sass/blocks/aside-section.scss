@@ -1,0 +1,32 @@
+.aside-section {
+  @include vp-1099 {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(35, 41, 57, 0.7);
+    z-index: 50;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: all 0.1s ease 0s;
+  }
+}
+
+.aside-section.show {
+  @include vp-1099 {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}
+
+.aside-section.show .filter__box {
+  @include vp-1099 {
+    transform: translateX(0);
+  }
+}
+

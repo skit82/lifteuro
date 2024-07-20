@@ -1,0 +1,132 @@
+.information {
+  display: block;
+  margin-bottom: 25px;
+
+  @include vp-1023 {
+    margin-bottom: 38px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin-bottom: 80px;
+
+    @include vp-1099 {
+      row-gap: 15px;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    color: $color-default-white;
+
+    background-color: $color-gray-chateau;
+    transition: background-color $trans-default;
+
+    padding-left: 28px;
+    padding-right: 27px;
+    padding-top: 17px;
+    padding-bottom: 15px;
+
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include vp-1099 {
+      padding-right: 29px;
+      padding-left: 29px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+
+      font-weight: 800;
+    }
+
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        background-color: $color-monza;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filter {
+    margin-right: auto;
+  }
+
+  &__description {
+    display: flex;
+    // margin-left: auto;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 125%;
+    text-align: right;
+    color: $color-mirage;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__number {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 125%;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__number-start {
+    margin: 0 5px;
+  }
+
+  &__filter-btn {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $color-mirage;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+
+    display: none;
+    align-items: center;
+    width: 170px;
+    height: 25px;
+    justify-content: space-between;
+    cursor: pointer;
+
+    @include vp-1099 {
+      display: flex;
+    }
+  }
+}

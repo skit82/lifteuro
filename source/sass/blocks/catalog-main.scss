@@ -1,0 +1,33 @@
+.catalog-main {
+  display: flex;
+  margin-bottom: 170px;
+
+  &__section {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+
+    @include vp-1023 {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    @include vp-767 {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    // min-height: 400px;
+  }
+}

@@ -1,12 +1,12 @@
 .custom-toggle {
   position: relative;
-  font-size: 18px;
-  line-height: 27px;
-  font-weight: 300;
+  // font-size: 18px;
+  // line-height: 27px;
+  // font-weight: 300;
 
   display: flex;
-  width: 500px;
-  padding: 14px 0 10px 36px;
+  // width: 500px;
+  // padding: 14px 0 10px 36px;
 
   @media screen and (max-width: 767px) {
     padding: 14px 0 10px 0;
@@ -14,7 +14,7 @@
   }
 
   &:last-of-type {
-    padding: 14px 0 58px 36px;
+    // padding: 14px 0 58px 36px;
 
     @media screen and (max-width: 767px) {
       padding: 14px 0 58px 0;
@@ -33,14 +33,40 @@
 
   label {
     position: relative;
-
-    padding-left: 52px;
-
+    display: inline-flex;
+    column-gap: 10px;
     cursor: pointer;
+    color: $color-mirage;
+    font-size: 18px;
+    line-height: 139%;
+    font-weight: 400;
 
     span {
       margin-bottom: 0;
       margin-left: 0;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    border: 1px solid $color-gray-chateau;
+    background-color: $color-default-white;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+    color: transparent;
+
+    transition: all 0.3s ease 0s;
+
+    svg {
+      width: 25px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
     }
   }
 
@@ -54,6 +80,7 @@
       height: 28px;
 
       border: 1.5px solid #2c39f2;
+      background-color: $color-monza;
 
       transition: border 0.3s ease;
 
@@ -109,7 +136,9 @@
   }
 
   input:checked + .custom-toggle__icon {
-    border: 1.5px solid #2c39f2;
+    // border: 1.5px solid #2c39f2;
+    background-color: $color-monza;
+    opacity: 1;
 
     &::before {
       background-color: #2c39f2;

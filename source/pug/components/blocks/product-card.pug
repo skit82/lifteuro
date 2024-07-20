@@ -1,0 +1,7 @@
+mixin product-card(data)
+  .product-card
+    a.product-card__link(href="#")
+      .product-card__image
+        +img(data.img.path, data.img.name, data.img.format, data.img.width, data.img.height, "Описание фото")
+      .product-card__name
+        p !{data.title}

@@ -1,0 +1,58 @@
+.breadcrumbs {
+  background-color: $color-default-white;
+}
+
+.breadcrumbs__list {
+  display: flex;
+
+  margin: 0 auto;
+  padding: 49px 0 26px;
+  width: 100%;
+
+  list-style: none;
+
+  @include vp-1023 {
+    padding-bottom: 22px;
+  }
+
+  @include vp-767 {
+    padding-bottom: 28px;
+  }
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+
+  color: $color-gray-chateau;
+
+  svg {
+    flex-shrink: 0;
+    margin: 0 5px;
+  }
+}
+
+
+.breadcrumbs__link {
+  display: inline;
+  color: $color-gray-chateau;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+
+  transition: color $trans-default;
+
+  @media (hover: hover), screen and (min-width: 0\0) {
+    &:hover,
+    &:focus {
+      color: $color-mirage;
+    }
+  }
+}
+
+.breadcrumbs__text {
+  color: $color-gray-chateau;
+}

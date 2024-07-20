@@ -16,3 +16,43 @@
   font-display: swap;
   src: url("../fonts/.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: 'TT-Commons-Pro';
+  font-display: swap;
+  src: url("../fonts/TT-Commons-Pro-Black.woff2") format("woff2"), url("../fonts/TT-Commons-Pro-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT-Commons-Pro';
+  font-display: swap;
+  src: url("../fonts/TT-Commons-Pro-Bold.woff2") format("woff2"), url("../fonts/TT-Commons-Pro-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT-Commons-Pro';
+  font-display: swap;
+  src: url("../fonts/TT-Commons-Pro-Light.woff2") format("woff2"), url("../fonts/TT-Commons-Pro-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT-Commons-Pro';
+  font-display: swap;
+  src: url("../fonts/TT-Commons-Pro-ExtraBold.woff2") format("woff2"), url("../fonts/TT-Commons-Pro-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT-Commons-Pro';
+  font-display: swap;
+  src: url("../fonts/TT-Commons-Pro-Normal.woff2") format("woff2"), url("../fonts/TT-Commons-Pro-Normal.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}

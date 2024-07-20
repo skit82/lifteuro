@@ -1,0 +1,11 @@
+mixin breadcrumbs(data)
+  .breadcrumbs&attributes(attributes)
+    .container
+      ul.breadcrumbs__list
+        each item in data
+          li.breadcrumbs__item
+            if (item.link)
+              a.breadcrumbs__link(href=item.link) !{item.title}
+              +icon(item.icon, 9, 16)
+            else
+              span.breadcrumbs__text !{item.title}

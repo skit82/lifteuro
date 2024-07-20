@@ -1,0 +1,92 @@
+.catalog-header {
+  margin-bottom: 50px;
+
+  &__wrapper {
+    position: relative;
+    background-color: $color-gray-chateau;
+    padding-top: 89px;
+    padding-bottom: 78px;
+    overflow: hidden;
+
+    @include vp-1099 {
+      padding-top: 64px;
+      padding-bottom: 58px;
+    }
+
+    @include vp-767 {
+      padding-top: 65px;
+      padding-bottom: 47px;
+      margin: 0 -10px;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    // z-index: -11;
+    right: 0;
+    top: -10px;
+    width: 725px;
+    height: 548px;
+    fill: none;
+
+    @include vp-1099 {
+      width: 519px;
+      height: 392px;
+    }
+
+    @include vp-1023 {
+      width: 354px;
+      height: 270px;
+    }
+
+    @include vp-767 {
+      width: 238px;
+      height: 180px;
+    }
+  }
+
+  &__description {
+    margin-left: 111px;
+
+    @include vp-1099 {
+      margin-left: 62px;
+    }
+
+    @include vp-767 {
+      margin-left: 25px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 28px;
+
+    @include vp-1099 {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__text {
+    max-width: 734px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 136%;
+
+    color: $color-default-white;
+
+    @include vp-1099 {
+      max-width: 578px;
+      font-size: 18px;
+      line-height: 139%;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
+      line-height: 143%;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+.filter {
+  flex: 0 0 300px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+  }
+
+  &__caption {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 114%;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $color-mirage;
+  }
+
+  &__box {
+    @include vp-1099 {
+      max-width: 494px;
+      width: 100%;
+      padding-left: 95px;
+      padding-right: 39px;
+      padding-bottom: 88px;
+      padding-top: 27px;
+      box-shadow: 5px 0 25px 0 rgba(159, 165, 173, 0.5);
+      background: $color-default-white;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease 0.2s, -webkit-transform 0.3s ease 0.2s;
+    }
+  }
+
+  &__btn-close {
+    display: none;
+
+    @include  vp-1099 {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+
+    margin-bottom: 74px;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__form-item {
+    border-top: 2px solid $color-monza;
+  }
+
+  &__form-inner {
+    margin-bottom: 30px;
+  }
+
+  &__form-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__form-name {
+    width: 100%;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 139%;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: $color-mirage;
+
+    p {
+      margin: 0;
+      padding-top: 16px;
+      padding-bottom: 25px;
+      cursor: pointer;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding-top: 16px;
+    padding-bottom: 25px;
+
+    svg {
+      transform: rotate(-180deg);
+      transition: transform $trans-default;
+    }
+  }
+
+  &__btn-close {
+
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $color-mirage;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: translateX(-65px);
+
+    margin-bottom: 46px;
+  }
+
+  &__btn-reset {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    width: 96px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    color: $color-monza;
+    transition: font-weight $trans-default, color $trans-default, border-color $trans-default, opacity $trans-default;
+    cursor: pointer;
+
+    svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      margin-left: 2px;
+      margin-top: 2px;
+      stroke-width: 1px;
+    }
+
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        font-weight: 700;
+        stroke-width: 2px;
+      }
+    }
+  }
+
+  &__button--active {
+    display: block;
+
+    svg {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__list--active {
+    display: block;
+  }
+}

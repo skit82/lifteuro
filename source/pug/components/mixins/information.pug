@@ -1,0 +1,21 @@
+mixin information(data)
+  section.information&attributes(attributes)
+    .container
+      h2.visually-hidden Ссылки на разделы страницы
+      ul.information__list
+        each item in data
+          li.information__item
+            a.information__link(href=item.link) !{item.title}
+      .information__bottom
+        .information__filter
+          button.information__filter-btn(type="button", data-aside-show="true")
+            +icon("icon-decor-filter", 25, 25)
+            span Фильтры
+            +icon("icon-plus", 15, 15)
+        .information__description
+          .information__name
+            p Показано товаров:
+          .information__number
+            p
+              span.information__number-start 64 из
+              span.information__number-end 64

@@ -3,6 +3,8 @@ import {initModals} from './modules/modals/init-modals';
 import {Form} from './modules/form-validate/form';
 import {CustomSelect} from './modules/select/custom-select';
 import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
+import {initAsideShow} from './modules/init-aside-show';
+import {initFilterActive} from './modules/init-filter-active';
 
 // ---------------------------------
 
@@ -22,6 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
     initModals();
     uploadFile();
     uploadImageDrop();
+    initAsideShow();
+    initFilterActive();
     const select = new CustomSelect();
     select.init();
     const form = new Form();
