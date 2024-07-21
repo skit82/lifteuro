@@ -133,3 +133,29 @@
 //    margin-bottom: no-scale(40px);
 //   }
 // }
+//Percent
+@function percent($px, $from) {
+  $result: math.div($px, $from) * 100%;
+  @return $result;
+}
+//REM
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+//EM
+@function em($px, $current: 16) {
+  $result: math.div($px, $current) + em;
+  @return $result;
+}
+
+// Size width and height
+@mixin size($width, $height) {
+  width: rem($width);
+  height: rem($height);
+}
+// fr
+@function fr($sizeCol, $gap, $space, $count) {
+  $result: calc($sizeCol - (rem($gap) * $space) / $count);
+  @return $result;
+}

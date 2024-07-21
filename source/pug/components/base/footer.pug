@@ -1,3 +1,53 @@
 mixin footer(footerMods)
+  - var list = ["Стропы", "Канаты", "Грузозахватные устройства", "Лебедки", "Блоки", "Динанометры", "Системы крепления грузов", "Вертлюги", "Талрепы", "Комплектующие"]
+  - var nav = ["компания", "доставка", "новости", "контакты"];
   footer.footer(class=footerMods)
-    .container
+    .footer__container
+      .footer__body
+        .footer__info
+          .footer__inner
+            .footer__logo
+              a(href="#").footer__logo-link
+                img(src="img/logo-white.svg", alt="Логотип")
+            .footer__descr
+              p Профессиональное грузоподъёмное оборудование
+          .footer__copy(data-da=".footer__body, 767")
+            p © Группа компаний «Евролифт»
+        .footer__content
+          .footer__phone
+            a.footer__phone-tel(href=("tel:+78482949383")) +7 (8482) 94-93-83
+          nav.footer__nav
+            .footer__products.products-footer
+              h3.products-footer__title Продукция
+              ul.products-footer__list
+                each item in list
+                  li.products-footer__item
+                    a.products-footer__link(href="#") #{item}
+            .footer__menu.menu-footer
+              ul.menu-footer__list
+                each link in nav
+                  li.menu-footer__item
+                    a.menu-footer__link(href="#") #{link}
+              ul.menu-footer__rule.rule-footer
+                li.rule-footer__item
+                  a.rule-footer__link(href="#") Пользовательское соглашение
+                li.rule-footer__item
+                  a.rule-footer__link(href="#") Политика конфеденциальности
+            .footer__contacts.contacts-footer
+              ul.contacts-footer__list
+                li.contacts-footer__item
+                  a.contacts-footer__email(href="mailto:info@euro-lift.net") info@euro-lift.net
+                li.contacts-footer__item
+                  a.contacts-footer__adress(href="https://maps.app.goo.gl/YTzw5jW5vLmaN9Xz5", target="_blank") Россия, Самарская обл, <br> г. Тольятти, Новопромышленная, 1
+              ul.contacts-footer__social.social
+                  li.social__item
+                    a.social__link(href="#")
+                      svg.social__link-icon.social__link-icon--tg
+                        use(xlink:href="#icon-tg")
+                  li.social__item
+                    a.social__link(href="#")
+                      svg.social__link-icon.social__link-icon--vk
+                        use(xlink:href="#icon-vk")
+          .footer__created
+            p Сделано в
+              a(href="#") Интерпретации

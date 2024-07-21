@@ -23,6 +23,11 @@
     margin-top: 15px;
     margin-bottom: 15px;
 
+    @include vp-767 {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
     img {
       mix-blend-mode: multiply;
       width: 220px;

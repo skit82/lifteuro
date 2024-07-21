@@ -1,4 +1,16 @@
 // Colors
+
+:root {
+--white: #ffffff;
+--monza: #d50032;
+--mirage: #131825;
+--ebony: #0f172a;
+--gray-nickel: #b4b4b3;
+--ebony-clay: #233239;
+--gray-chateau: #9fa5ad;
+--desert-storm: #ececeb;
+}
+
 // ---------------------------------
 
 // Default
@@ -14,6 +26,7 @@ $color-ebony:                       #0f172a;
 $color-gray-nicrel:                 #b4b4b3;
 $color-ebony-clay:                  #233239;
 $color-gray-chateau:                #9fa5ad;
+$color-gray-chateau-1:              #777d85;
 $color-desert-storm:                #ececeb;
 
 // Project palette
@@ -49,6 +62,13 @@ $trans-font:                        0.8s $tf-default;
 $trans-modal:                       0.6s cubic-bezier(0.55, 0, 0.1, 1);
 
 $trans-600:                         0.6s $tf-default;
+
+// Брейк-поинты
+$pc: 1449.98 + px; // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$custom1: 1224 + px;
+$tablet: 991.98 + px; // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: 767.98 + px; // Телефоны L
+$mobileSmall: 479.98 + px; // Телефоны S
 
 // Viewports
 // ---------------------------------

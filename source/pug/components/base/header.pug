@@ -1,36 +1,112 @@
 mixin header(headerMods, currentUrl)
-  -
-    const headerLinks = [
-      {
-        href: "index.html",
-        text: "Главная"
-      },
-      {
-        href: "#",
-        text: "Страница 2"
-      },
-      {
-        href: "#",
-        text: "Страница 3"
-      },
-    ]
+  header.header(data-lp)
+    .header__container
+      .header__body
+        .header__logo
+          a.header__logo-link(href="#")
+            img(src="img/logo.svg" alt="Логотип")
 
-  header.header(class=headerMods)
-    .container
-      if(currentUrl === "index.html")
-        //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
-      else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
-      nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
-          ul.main-nav__list
-            each link in headerLinks
-              - const activeState = currentUrl === link.href
-              li.main-nav__item
-                if(activeState)
-                  span.main-nav__link.is-active= link.text
-                else
-                  a.main-nav__link(href=link.href)= link.text
+        .header__menu.menu
+          <button class="menu__burger" type="button">
+          <span class="icon-menu__descr visually-hidden">Каталог</span>
+            span.menu__burger-icon.icon-menu
+             span
+            //- <svg class="icon-menu__burger" viewBox="0 0 100 100">
+            //-   <path class="icon-menu__line icon-menu__line_1" d="M 20,29.000046 H 80.000231 C   80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+            //-   <path class="icon-menu__line icon-menu__line_2" d="M 20,50 H 80" />
+            //-   <path class="icon-menu__line icon-menu__line_3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            //- </svg>
+          </button>
+          nav.menu__body
+            ul.menu__list
+              li.menu__item
+                button.menu__button-catalog(type="button")
+                  span.menu__button-catalog-descr продукция
+                  svg.menu__button-catalog-icon
+                    use(xlink:href="#icon-arrow")
+              li.menu__item
+                a.menu__link(href="#") компания
+              li.menu__item.menu__item--hidden
+                a.menu__link(href="#") доставка
+              li.menu__item.menu__item--hidden
+                a.menu__link(href="#") новости
+              li.menu__item
+                a.menu__link(href="#") контакты
+
+        .header__action
+          .header__phone
+            a.header__phone-tel(href="tel:+78482949383") +7 (8482) 94-93-83
+          .header__search.search-header
+            button.search-header__button-show(type="button")
+              span.search-header__button-show-descr.visually-hidden Поиск
+              svg.search-header__button-show-icon
+                use(xlink:href="#icon-search")
+            form(action="#").search-header__form
+              .search-header__form-line
+                input(type="text" placeholder="Я ищу...").search-header__input
+              .search-header__action
+                button(type="button").search-header__button-close
+                  span.search-header__button-close-descr.visually-hidden Очистить
+                  svg.search-header__button-close-icon
+                    use(xlink:href="#icon-close-full")
+                button.search-header__button-search
+                  span.search-header__button-search-descr.visually-hidden Поиск
+                  svg.search-header__button-search-icon
+                    use(xlink:href="#icon-search")
+
+      nav.header__catalog.catalog-header
+        .catalog-header__holder
+          .catalog-header__body
+            ul.catalog-header__list
+              li.catalog-header__item.menu-item-has-children
+                span.catalog-header__link
+                  span.catalog-header__link-inner
+                    span Стропы
+                    svg.catalog-header__link-icon
+                      use(xlink:href="#icon-arrow-bold")
+                  svg.catalog-header__link-icon.catalog-header__link-icon--red
+                      use(xlink:href="#icon-arrow-bold")
+                .catalog-header__sub-menu
+                  .catalog-header__sub-menu-head
+                    button.catalog-header__sub-menu-return(type="button")
+                      svg.catalog-header__sub-menu-return-icon
+                        use(xlink:href="#icon-arrow")
+                      span назад
+                  ul.catalog-header__sub-menu-list
+                    li.catalog-header__sub-menu-item
+                      a.catalog-header__sub-menu-link(href="#") Прямые скобы
+                    li.catalog-header__sub-menu-item
+                      a.catalog-header__sub-menu-link(href="#") Омегообразные скобы
+                    li.catalog-header__sub-menu-item
+                      a.catalog-header__sub-menu-link(href="#") Скобы из нержавеющей стали
+                    li.catalog-header__sub-menu-item
+                      a.catalog-header__sub-menu-link(href="#") Скобы для низких температур
+                    li.catalog-header__sub-menu-item
+                      a.catalog-header__sub-menu-link(href="#") Скобы специального назначения
+                    li.catalog-header__sub-menu-item
+                      a.catalog-header__sub-menu-link(href="#") Шплинт
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Канаты
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Грузозахватные устройства
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Такелажные скобы
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Грузоподьемные устройства
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Такелажные точки
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Лебедки
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Блоки
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Динамометры
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Система Крепления Грузов
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Вертлюги
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Талрепы
+              li.catalog-header__item
+                a.catalog-header__link(href="#") Комлектующие
+          .catalog-header__panel

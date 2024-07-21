@@ -3,11 +3,39 @@ extends ../components/base/layout
 block variables
   - const title = "Каталог" //- на страницах кроме главной используйте О нас — ProjectName
   - const wrapperMods = ""
-  // - const hasHeader = true
+  - const hasHeader = true
   - const headerMods = ""
   - const hasFooter = true
   - const footerMods = ""
   - const currentUrl = "catalog.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+  -
+    const informationMenuLinks = [
+      {
+        link: '#',
+        title: 'Прямые скобы',
+      },
+      {
+        link: '#',
+        title: 'Омегообразные скобы',
+      },
+      {
+        link: '#',
+        title: 'Скобы из нержавеющей стали',
+      },
+      {
+        link: '#',
+        title: 'Скобы для низких температур',
+      },
+      {
+        link: '#',
+        title: 'Скобы специального назначения',
+      },
+      {
+        link: '#',
+        title: 'Шплинт',
+      },
+    ]
 
 block main
   main
@@ -15,8 +43,8 @@ block main
     //- все блоки вставляются из папки pug/components/blocks
     // +intro()
     +breadcrumbs(riggingClip)
-    +catalog-header()
-    +information(informationCatalog)
+    +catalog-caption()
+    +information(informationMenuLinks, 1)
     .container
       +catalog-main()
 

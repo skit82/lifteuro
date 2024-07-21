@@ -16,7 +16,7 @@
   }
 
   @include vp-767 {
-    padding-bottom: 28px;
+    padding-bottom: 16px;
   }
 }
 
@@ -30,25 +30,60 @@
 
   color: $color-gray-chateau;
 
+  @include vp-1023 {
+    font-size: 14px;
+  }
+
+  @include vp-767 {
+    font-size: 12px;
+  }
+
   svg {
     flex-shrink: 0;
-    margin: 0 5px;
+    margin: 0 8px;
+
+    @include vp-767 {
+      width: 8px;
+      height: 8px;
+      margin: 0 5px;
+    }
   }
 }
 
 
 .breadcrumbs__link {
+  position: relative;
   display: inline;
   color: $color-gray-chateau;
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
+  // text-decoration: underline;
+  // text-decoration-skip-ink: none;
 
   transition: color $trans-default;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $color-gray-chateau;
+    transform: scaleX(1);
+    transition: transform $trans-default;
+
+    @include vp-767 {
+      bottom: 6px;
+    }
+  }
 
   @media (hover: hover), screen and (min-width: 0\0) {
     &:hover,
     &:focus {
       color: $color-mirage;
+
+      &::before {
+        transform: scaleX(0);
+      }
     }
   }
 }

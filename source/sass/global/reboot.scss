@@ -56,6 +56,7 @@ video {
   display: block;
   max-width: 100%;
   height: auto;
+  vertical-align: top;
 }
 
 textarea {
@@ -86,6 +87,12 @@ textarea {
   &:invalid {
     box-shadow: none;
   }
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
 }
 
 select {
@@ -138,4 +145,18 @@ button,
 [type="reset"],
 [type="submit"] {
   appearance: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
 }

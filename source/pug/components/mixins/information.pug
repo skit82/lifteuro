@@ -1,11 +1,21 @@
-mixin information(data)
+mixin information(informationMenuLinks, currentIndex)
+
   section.information&attributes(attributes)
     .container
       h2.visually-hidden Ссылки на разделы страницы
       ul.information__list
-        each item in data
-          li.information__item
-            a.information__link(href=item.link) !{item.title}
+        each link, index in informationMenuLinks
+          if(index === currentIndex)
+            li.information__item.information__item--current(data-side-menu="current-item")
+              .information__link.information__link--current
+                span !{link.title}
+          else
+            li.information__item(data-side-menu="item")
+              a(href=link.link).information__link.information__link--enabled
+                span !{link.title}
+      .information__select
+        each item in informationListSelect
+          +custom-select(item)(data-select, data-name=item.name, data-id=item.name).custom-select
       .information__bottom
         .information__filter
           button.information__filter-btn(type="button", data-aside-show="true")
@@ -19,3 +29,6 @@ mixin information(data)
             p
               span.information__number-start 64 из
               span.information__number-end 64
+        button.filter__btn-reset(type="reset")
+              span Очистить
+              +icon("icon-closes")

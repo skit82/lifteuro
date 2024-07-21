@@ -169,8 +169,8 @@ mixin catalog-main()
               .filter__form-top
                 .filter__form-name
                   p Форма
-                button.filter__button.filter__button--active(type="button")
-                  +icon("icon-filter", 12, 8)
+                .filter__button.filter__button--active
+                  +icon("icon-arrow", 12, 8)
               ul.filter__list.filter__list--active
                 li.filter__item
                   +custom-toggle({inputLabel: "Прямые", inputNumber: "43", inputType: "checkbox", inputName: "shape"})

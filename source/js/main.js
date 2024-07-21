@@ -5,6 +5,10 @@ import {CustomSelect} from './modules/select/custom-select';
 import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
 import {initAsideShow} from './modules/init-aside-show';
 import {initFilterActive} from './modules/init-filter-active';
+import {initSideMenu} from './modules/init-side-menu';
+import {initSearchHeader} from './modules/init-search-header';
+import {initNavBar} from './modules/init-nav-bar';
+import {initFixedHeader} from './modules/init-fixed-header';
 
 // ---------------------------------
 
@@ -26,6 +30,10 @@ window.addEventListener('DOMContentLoaded', () => {
     uploadImageDrop();
     initAsideShow();
     initFilterActive();
+    initSideMenu();
+    initSearchHeader();
+    initNavBar();
+    initFixedHeader();
     const select = new CustomSelect();
     select.init();
     const form = new Form();
