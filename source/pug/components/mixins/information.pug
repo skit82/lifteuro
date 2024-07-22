@@ -11,11 +11,11 @@ mixin information(informationMenuLinks, currentIndex)
                 span !{link.title}
           else
             li.information__item(data-side-menu="item")
-              a(href=link.link).information__link.information__link--enabled
+              a.information__link.information__link--enabled(href=link.link)
                 span !{link.title}
       .information__select
         each item in informationListSelect
-          +custom-select(item)(data-select, data-name=item.name, data-id=item.name).custom-select
+          +custom-select.custom-select(item)(data-select, data-name=item.name, data-id=item.name)
       .information__bottom
         .information__filter
           button.information__filter-btn(type="button", data-aside-show="true")

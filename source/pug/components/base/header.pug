@@ -4,10 +4,10 @@ mixin header(headerMods, currentUrl)
       .header__body
         .header__logo
           a.header__logo-link(href="#")
-            img(src="img/logo.svg" alt="Логотип")
+            img(src="img/logo.svg", alt="Логотип")
 
         .header__menu.menu
-          <button class="menu__burger" type="button">
+          // <button class="menu__burger" type="button">
           <span class="icon-menu__descr visually-hidden">Каталог</span>
             span.menu__burger-icon.icon-menu
              span
@@ -41,11 +41,11 @@ mixin header(headerMods, currentUrl)
               span.search-header__button-show-descr.visually-hidden Поиск
               svg.search-header__button-show-icon
                 use(xlink:href="#icon-search")
-            form(action="#").search-header__form
+            form.search-header__form(action="#")
               .search-header__form-line
-                input(type="text" placeholder="Я ищу...").search-header__input
+                input.search-header__input(type="text" placeholder="Я ищу...")
               .search-header__action
-                button(type="button").search-header__button-close
+                button.search-header__button-close(type="button")
                   span.search-header__button-close-descr.visually-hidden Очистить
                   svg.search-header__button-close-icon
                     use(xlink:href="#icon-close-full")

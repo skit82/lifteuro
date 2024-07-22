@@ -6,7 +6,7 @@ const initFixedHeader = () => {
     window.pageYOffset || document.documentElement.scrollTop;
   const containHide = () => header.classList.contains('hide');
 
-  window.addEventListener('scroll', e => {
+  window.addEventListener('scroll', (e) => {
     if (
       scrollPosition() > lastScroll &&
       !containHide() &&
@@ -19,6 +19,6 @@ const initFixedHeader = () => {
 
     lastScroll = scrollPosition();
   });
-}
+};
 
-export {initFixedHeader}
+export {initFixedHeader};

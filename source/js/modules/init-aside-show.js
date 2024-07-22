@@ -4,13 +4,13 @@ function initAsideShow() {
   const buttonClose = document.querySelector('[data-aside-close]');
 
   if (buttonShow && aside) {
-    buttonShow.addEventListener('click', e => {
+    buttonShow.addEventListener('click', (e) => {
       e.preventDefault();
       // bodyLock();
       aside.classList.toggle('show');
     });
 
-    aside.addEventListener('click', e => {
+    aside.addEventListener('click', (e) => {
       if (
         !e.target.closest('.filter__box') &&
         !e.target.classList.contains('filter__box')
@@ -22,7 +22,7 @@ function initAsideShow() {
   }
 
   if (buttonClose) {
-    buttonClose.addEventListener('click', e => {
+    buttonClose.addEventListener('click', (e) => {
       e.preventDefault();
       // bodyUnlock(300);
       aside.classList.remove('show');
@@ -30,4 +30,4 @@ function initAsideShow() {
   }
 }
 
-export {initAsideShow}
+export {initAsideShow};
