@@ -165,6 +165,8 @@
         column-gap: 9px;
         transition: color 0.3s ease 0s;
         position: relative;
+        border: none;
+        padding: 0;
         &::before {
             content: '';
             position: absolute;
@@ -212,6 +214,8 @@
         position: relative;
         z-index: 7;
         margin-bottom: -6px;
+        border: 0;
+        padding: 0;
     }
 }
 
@@ -222,6 +226,8 @@
         align-items: center;
         width: 30px;
         height: 30px;
+        border: none;
+        padding: 0;
         @media (max-width:$tablet){
             width: 25px;
             height: 25px;
@@ -533,6 +539,7 @@
     &__input {
         width: 100%;
         outline: none;
+        border: none;
         &::placeholder {
             color: var(--gray-chateau);
         }
@@ -549,6 +556,8 @@
         align-items: center;
         width: 30px;
         height: 30px;
+        border: none;
+        padding: 0;
         @media (max-width:$tablet){
             width: 25px;
             height: 25px;

@@ -1,3 +1,5 @@
+@use 'sass:math';
+// Основная сетка
 // Colors
 
 :root {
@@ -63,12 +65,143 @@ $trans-modal:                       0.6s cubic-bezier(0.55, 0, 0.1, 1);
 
 $trans-600:                         0.6s $tf-default;
 
+
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1290;
+// Общее отступление у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступления)
+$containerPadding: 150;
+
+// Максимальная ширина контейнера с отступами
+$containerWidth: $maxWidthContainer + $containerPadding;
+
 // Брейк-поинты
 $pc: 1449.98 + px; // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
 $custom1: 1224 + px;
 $tablet: 991.98 + px; // Планшеты, некоторые телефоны в горизонтальном положении
 $mobile: 767.98 + px; // Телефоны L
 $mobileSmall: 479.98 + px; // Телефоны S
+
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинту (контейнер меняет свою ширину по брейк-поинту)
+$responsiveType: 1;
+
+@if ($responsiveType==1) {
+  .container {
+    max-width: $containerWidth + px;
+    margin: 0 auto;
+    padding: 0 75px;
+    @media (max-width:$tablet){
+            padding: 0 35px;
+        }
+        @media (max-width:$mobile){
+            padding: 0 25px;
+        }
+  }
+} @else {
+  // Брейк-поинты
+  .container {
+    margin: 0 auto;
+    max-width: $containerWidth + px;
+    padding: 0 math.div($containerPadding, 2) + px;
+
+    @media (max-width: $pc) {
+      max-width: 1200px;
+    }
+    @media (max-width: $tablet) {
+      max-width: 970px;
+    }
+    @media (max-width: $mobile) {
+      max-width: 740px;
+    }
+    @media (max-width: $mobileSmall) {
+      max-width: none;
+    }
+  }
+}
+
+@mixin adaptiveValue(
+  $property,
+  $startSize,
+  $minSize,
+  $keepSize: 0,
+  $widthFrom: $containerWidth,
+  $widthTo: $minWidth
+) {
+  @if ($startSize==0) {
+    $startSize: 0.000001;
+  }
+  @if ($minSize==0) {
+    $minSize: 0.000001;
+  }
+
+  // Для calc();
+  $addSize: math.div($startSize - $minSize, 16);
+
+  @if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+    $widthFrom: $maxWidth;
+  }
+
+  $widthFromMedia: $widthFrom + px;
+  $widthToMedia: $widthTo + px;
+
+  // Формула плавного значення
+  // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+  $yIntersection: -$widthTo * $slope + $minSize;
+  @if ($yIntersection==0) {
+    $yIntersection: 0.000001;
+  }
+  $flyValue: #{$yIntersection + px}' + ' #{$slope * 100}vw;
+
+  $propertyValue: #{'clamp(' $minSize + px ',' $flyValue ',' $startSize + px ')'};
+  @if ($minSize > $startSize) {
+    $propertyValue: #{'clamp('
+      $startSize +
+      px
+      ','
+      $flyValue
+      ','
+      $minSize +
+      px
+      ')'};
+  }
+
+  @if $keepSize != 1 and $keepSize != 3 {
+    @media (min-width: $widthFromMedia) {
+      #{$property}: $startSize + px;
+    }
+  }
+  @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+    @supports (#{$property}: $propertyValue) {
+      #{$property}: $propertyValue;
+    }
+
+    @supports not (#{$property}: $propertyValue) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * (100vw - #{$widthTo + px}) / #{math.div(
+            $widthFrom,
+            16
+          ) - math.div($widthTo, 16)}
+      );
+    }
+  }
+  @if $keepSize != 1 and $keepSize != 2 {
+    @media (max-width: $widthToMedia) {
+      #{$property}: $minSize + px;
+    }
+  }
+}
+
+@function em($px, $current: 16) {
+  $result: math.div($px, $current) + em;
+  @return $result;
+}
 
 // Viewports
 // ---------------------------------

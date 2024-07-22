@@ -154,6 +154,15 @@
   }
 
   &__description {
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &__btn {
     display: none;
+    @include  vp-767 {
+      display: block;
+    }
   }
 }

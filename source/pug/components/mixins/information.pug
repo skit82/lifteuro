@@ -29,6 +29,7 @@ mixin information(informationMenuLinks, currentIndex)
             p
               span.information__number-start 64 из
               span.information__number-end 64
-        button.filter__btn-reset(type="reset")
-              span Очистить
-              +icon("icon-closes")
+        .information__btn
+          button.filter__btn-reset(type="reset")
+            span Очистить
+            +icon("icon-closes")

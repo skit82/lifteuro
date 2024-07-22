@@ -1,5 +1,14 @@
 .breadcrumbs {
   background-color: $color-default-white;
+  margin-top: 84px;
+
+  @include vp-1023 {
+
+  }
+
+  @include vp-767 {
+    margin-top: 60px;
+  }
 }
 
 .breadcrumbs__list {
@@ -17,6 +26,7 @@
 
   @include vp-767 {
     padding-bottom: 16px;
+    padding-top: 20px;
   }
 }
 
